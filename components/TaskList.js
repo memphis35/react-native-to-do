@@ -14,6 +14,7 @@ function TaskList({ tasks }) {
         data={tasks}
         renderItem={renderTask}
         contentContainerStyle={{ gap: 10 }}
+        keyExtractor={(item, index) => index}
       />
     </View>
   );

@@ -10,15 +10,22 @@ function TaskInput({ addTask }) {
         placeholder="Type a task here..."
         style={styles.inputText}
         color="#16404D"
-        onChangeText={(text) => setTaskName(text)}
+        onChangeText={(text) => {
+          setTaskName(text.trimStart());
+        }}
         value={taskName}
       />
       <Button
         title="Add a task"
         color="#16404D"
         onPress={() => {
-          addTask(taskName.trim());
-          setTaskName("");
+          const trimmedName = taskName.trimEnd();
+          if (trimmedName.length > 5) {
+            addTask(trimmedName);
+            setTaskName("");
+          } else {
+            console.error("Trimmed name is less tha 5: ", trimmedName);
+          }
         }}
       />
     </View>
