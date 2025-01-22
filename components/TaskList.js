@@ -30,7 +30,7 @@ export default TaskList;
 const styles = StyleSheet.create({
   board_container: {
     flex: 3,
-    rowGap: 5,
+    rowGap: 16,
     paddingVertical: 8,
     paddingHorizontal: 10,
     alignItems: "center",
