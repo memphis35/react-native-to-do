@@ -6,11 +6,12 @@ import TaskList from "./components/TaskList";
 
 export default function App() {
   const [tasks, setTasks] = useState(["Do an errand"]);
+
   return (
     <View style={{ flex: 1 }}>
       <AppHeader />
       <TaskInput />
-      <TaskList />
+      <TaskList tasks={tasks} />
     </View>
   );
 }
