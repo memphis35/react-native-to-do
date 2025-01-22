@@ -5,7 +5,11 @@ import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
 
 export default function App() {
-  const [tasks, setTasks] = useState(["Do an errand"]);
+  const [tasks, setTasks] = useState([
+    "Mop the floor",
+    "Clean the bath",
+    "Wash the dishes",
+  ]);
 
   const addTask = (taskName) =>
     setTasks((currentTasks) => [...currentTasks, taskName]);

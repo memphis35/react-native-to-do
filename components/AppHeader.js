@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   title_container: {
     paddingTop: 50,
     paddingBottom: 8,
-    backgroundColor: "powderblue",
+    backgroundColor: "#FBF5DD",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 700,
     marginBottom: 20,
+    color: "#16404D",
   },
   description: {
     paddingLeft: 10,

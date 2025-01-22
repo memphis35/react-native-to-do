@@ -1,11 +1,8 @@
 import { View, Text, FlatList, StyleSheet } from "react-native";
+import TaskItem from "./TaskItem";
 
 function TaskList({ tasks }) {
-  const renderTask = (itemWrapper) => (
-    <View>
-      <Text>{itemWrapper.item}</Text>
-    </View>
-  );
+  const renderTask = (itemWrapper) => <TaskItem text={itemWrapper.item} />;
   const emptyList = (
     <View style={styles.board_container}>
       <Text>Lucky you! There is nothing to do!</Text>
@@ -13,7 +10,11 @@ function TaskList({ tasks }) {
   );
   const notEmptyList = (
     <View style={styles.board_container}>
-      <FlatList data={tasks} renderItem={renderTask} />
+      <FlatList
+        data={tasks}
+        renderItem={renderTask}
+        contentContainerStyle={{ gap: 10 }}
+      />
     </View>
   );
   const rendered = tasks ? notEmptyList : emptyList;
@@ -25,8 +26,9 @@ export default TaskList;
 const styles = StyleSheet.create({
   board_container: {
     flex: 3,
-    backgroundColor: "white",
+    rowGap: 5,
     paddingVertical: 8,
+    paddingHorizontal: 10,
     alignItems: "center",
   },
 });

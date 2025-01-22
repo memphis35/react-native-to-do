@@ -9,11 +9,13 @@ function TaskInput({ addTask }) {
       <TextInput
         placeholder="Type a task here..."
         style={styles.inputText}
+        color="#16404D"
         onChangeText={(text) => setTaskName(text)}
         value={taskName}
       />
       <Button
         title="Add a task"
+        color="#16404D"
         onPress={() => {
           addTask(taskName.trim());
           setTaskName("");
@@ -33,12 +35,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
-    backgroundColor: "skyblue",
+    backgroundColor: "#FBF5DD",
     borderTopWidth: 2,
     borderBottomWidth: 2,
+    borderColor: "#16404D",
   },
   inputText: {
-    backgroundColor: "white",
+    backgroundColor: "#fff",
     padding: 10,
     borderWidth: 2,
     borderRadius: 10,
