@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { View, Button } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import AppHeader from "./components/AppHeader";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
@@ -18,11 +19,14 @@ export default function App() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#fdf0d5" }}>
-      <AppHeader />
-      <Button title="Add a new task" onPress={addNewTaskHandler} color={"#c1121f"} />
-      <TaskInput addTask={addTask} isModalVisible={isModalVisible} setModalVisible={setModalVisible} />
-      <TaskList tasks={tasks} onDeleteTask={deleteTask} />
-    </View>
+    <>
+      <StatusBar style="dark" />
+      <View style={{ flex: 1, backgroundColor: "#fdf0d5" }}>
+        <AppHeader />
+        <Button title="Add a new task" onPress={addNewTaskHandler} color={"#c1121f"} />
+        <TaskInput addTask={addTask} isModalVisible={isModalVisible} setModalVisible={setModalVisible} />
+        <TaskList tasks={tasks} onDeleteTask={deleteTask} />
+      </View>
+    </>
   );
 }

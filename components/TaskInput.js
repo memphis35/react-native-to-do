@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, TextInput, Button, Modal, StyleSheet } from "react-native";
+import { View, Text, TextInput, Button, Modal, Image, StyleSheet } from "react-native";
 
 function TaskInput({ addTask, isModalVisible, setModalVisible }) {
   const [text, setText] = useState("");
@@ -27,6 +27,7 @@ function TaskInput({ addTask, isModalVisible, setModalVisible }) {
   return (
     <Modal visible={isModalVisible} animationType="slide">
       <View style={styles.modalWindowWrapper}>
+        <Image source={require("../assets/images/calendar.png")} />
         <Text style={{ color: "#003049" }}>Describe a task here...</Text>
         <View style={styles.inputContainer}>
           <TextInput
@@ -37,7 +38,7 @@ function TaskInput({ addTask, isModalVisible, setModalVisible }) {
           />
           <View style={styles.buttons}>
             <Button title="Add a task" color="#c1121f" onPress={onAddTaskHandler} />
-            <Button title="Cancel" color="#c1121f" onPress={onCancelTaskHandler} />
+            <Button title="Cancel" color="#780000" onPress={onCancelTaskHandler} />
           </View>
         </View>
       </View>
@@ -54,7 +55,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     rowGap: 10,
-    backgroundColor: "#fdf0d5",
   },
   inputContainer: {
     width: "80%",
