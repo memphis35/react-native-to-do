@@ -7,10 +7,13 @@ import TaskList from "./components/TaskList";
 export default function App() {
   const [tasks, setTasks] = useState(["Do an errand"]);
 
+  const addTask = (taskName) =>
+    setTasks((currentTasks) => [...currentTasks, taskName]);
+
   return (
     <View style={{ flex: 1 }}>
       <AppHeader />
-      <TaskInput />
+      <TaskInput addTask={addTask} />
       <TaskList tasks={tasks} />
     </View>
   );

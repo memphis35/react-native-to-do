@@ -1,10 +1,24 @@
+import { useState } from "react";
 import { View, TextInput, Button, StyleSheet } from "react-native";
 
-function TaskInput() {
+function TaskInput({ addTask }) {
+  const [taskName, setTaskName] = useState("");
+
   return (
     <View style={styles.inputContainer}>
-      <TextInput placeholder="Type a task here..." style={styles.inputText} />
-      <Button title="Add a task" />
+      <TextInput
+        placeholder="Type a task here..."
+        style={styles.inputText}
+        onChangeText={(text) => setTaskName(text)}
+        value={taskName}
+      />
+      <Button
+        title="Add a task"
+        onPress={() => {
+          addTask(taskName.trim());
+          setTaskName("");
+        }}
+      />
     </View>
   );
 }
