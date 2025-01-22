@@ -1,10 +1,12 @@
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet } from "react-native";
 
-function TaskItem({ text }) {
+function TaskItem({ text, onDeleteTask, taskId }) {
   return (
     <View style={styles.item}>
       <Text>{text}</Text>
-      <Button title="X" color="#16404D" />
+      <Pressable onPress={() => onDeleteTask(taskId)}>
+        <Text>[DELETE]</Text>
+      </Pressable>
     </View>
   );
 }

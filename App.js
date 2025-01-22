@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import { StyleSheet, View } from "react-native";
 import AppHeader from "./components/AppHeader";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
@@ -14,11 +14,16 @@ export default function App() {
   const addTask = (taskName) =>
     setTasks((currentTasks) => [...currentTasks, taskName]);
 
+  const deleteTask = (id) => {
+    const updated = tasks.filter((el, index) => index !== id);
+    setTasks(updated);
+  };
+
   return (
     <View style={{ flex: 1 }}>
       <AppHeader />
       <TaskInput addTask={addTask} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} onDeleteTask={deleteTask} />
     </View>
   );
 }
