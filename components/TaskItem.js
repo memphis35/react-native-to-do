@@ -4,8 +4,8 @@ function TaskItem({ text, onDeleteTask, taskId }) {
   return (
     <View style={styles.item}>
       <Pressable onPress={() => onDeleteTask(taskId)} style={styles.pressable}>
-        <Text>{text}</Text>
-        <Text>[TAP TO DELETE]</Text>
+        <Text style={styles.darkText}>{text}</Text>
+        <Text style={styles.darkText}>[TAP TO DELETE]</Text>
       </Pressable>
     </View>
   );
@@ -16,15 +16,18 @@ export default TaskItem;
 const styles = StyleSheet.create({
   item: {
     width: "100%",
-    backgroundColor: "#DDA853",
+    backgroundColor: "#f4a261",
     borderRadius: 8,
+  },
+  darkText: {
+    color: "#003049",
   },
   pressable: {
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 10,
-    paddingVertical: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 16,
   },
 });

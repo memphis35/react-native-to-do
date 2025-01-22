@@ -27,7 +27,7 @@ function TaskInput({ addTask, isModalVisible, setModalVisible }) {
   return (
     <Modal visible={isModalVisible} animationType="slide">
       <View style={styles.modalWindowWrapper}>
-        <Text>Describe a task here...</Text>
+        <Text style={{ color: "#003049" }}>Describe a task here...</Text>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
@@ -36,8 +36,8 @@ function TaskInput({ addTask, isModalVisible, setModalVisible }) {
             placeholder="Type something..."
           />
           <View style={styles.buttons}>
-            <Button title="Add a task" color="#16404D" onPress={onAddTaskHandler} />
-            <Button title="Cancel" color="#16404D" onPress={onCancelTaskHandler} />
+            <Button title="Add a task" color="#c1121f" onPress={onAddTaskHandler} />
+            <Button title="Cancel" color="#c1121f" onPress={onCancelTaskHandler} />
           </View>
         </View>
       </View>
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     rowGap: 10,
+    backgroundColor: "#fdf0d5",
   },
   inputContainer: {
     width: "80%",

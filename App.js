@@ -18,9 +18,9 @@ export default function App() {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "#fdf0d5" }}>
       <AppHeader />
-      <Button title="Add a new task" onPress={addNewTaskHandler} />
+      <Button title="Add a new task" onPress={addNewTaskHandler} color={"#c1121f"} />
       <TaskInput addTask={addTask} isModalVisible={isModalVisible} setModalVisible={setModalVisible} />
       <TaskList tasks={tasks} onDeleteTask={deleteTask} />
     </View>
