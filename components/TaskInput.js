@@ -24,7 +24,7 @@ function TaskInput({ addTask }) {
             addTask(trimmedName);
             setTaskName("");
           } else {
-            console.error("Trimmed name is less tha 5: ", trimmedName);
+            console.error("Trimmed name is less than 5: ", trimmedName);
           }
         }}
       />
