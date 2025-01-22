@@ -5,7 +5,7 @@ function TaskItem({ text, onDeleteTask, taskId }) {
     <View style={styles.item}>
       <Pressable onPress={() => onDeleteTask(taskId)} style={styles.pressable}>
         <Text>{text}</Text>
-        <Text>[DELETE]</Text>
+        <Text>[TAP TO DELETE]</Text>
       </Pressable>
     </View>
   );

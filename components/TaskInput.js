@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, TextInput, Button, Modal, StyleSheet } from "react-native";
+import { View, Text, TextInput, Button, Modal, StyleSheet } from "react-native";
 
 function TaskInput({ addTask, isModalVisible, setModalVisible }) {
   const [text, setText] = useState("");
@@ -19,15 +19,27 @@ function TaskInput({ addTask, isModalVisible, setModalVisible }) {
     }
   };
 
+  const onCancelTaskHandler = () => {
+    setText("");
+    setModalVisible(false);
+  };
+
   return (
-    <Modal visible={isModalVisible} style={styles.modal}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          onChangeText={onInputTextHandler}
-          value={text}
-        />
-        <Button title="Add a task" color="#16404D" onPress={onAddTaskHandler} />
+    <Modal visible={isModalVisible} animationType="slide">
+      <View style={styles.modalWindowWrapper}>
+        <Text>Describe a task here...</Text>
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            onChangeText={onInputTextHandler}
+            value={text}
+            placeholder="Type something..."
+          />
+          <View style={styles.buttons}>
+            <Button title="Add a task" color="#16404D" onPress={onAddTaskHandler} />
+            <Button title="Cancel" color="#16404D" onPress={onCancelTaskHandler} />
+          </View>
+        </View>
       </View>
     </Modal>
   );
@@ -36,26 +48,25 @@ function TaskInput({ addTask, isModalVisible, setModalVisible }) {
 export default TaskInput;
 
 const styles = StyleSheet.create({
-  modal: {
+  modalWindowWrapper: {
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
+    justifyContent: "center",
+    padding: 20,
+    rowGap: 10,
   },
   inputContainer: {
-    width: "100%",
-    height: "100%",
-    paddingVertical: 8,
-    paddingHorizontal: 10,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    backgroundColor: "#FBF5DD",
+    width: "80%",
+    gap: 20,
   },
   input: {
     backgroundColor: "#fff",
     padding: 10,
     borderWidth: 2,
     borderRadius: 10,
-    flex: 1,
+  },
+  buttons: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });

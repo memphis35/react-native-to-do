@@ -3,11 +3,7 @@ import TaskItem from "./TaskItem";
 
 function TaskList({ tasks, onDeleteTask }) {
   const renderTask = (itemWrapper) => (
-    <TaskItem
-      text={itemWrapper.item}
-      onDeleteTask={onDeleteTask}
-      taskId={itemWrapper.index}
-    />
+    <TaskItem text={itemWrapper.item} onDeleteTask={onDeleteTask} taskId={itemWrapper.index} />
   );
   const emptyList = (
     <View style={styles.board_container}>
@@ -25,7 +21,7 @@ function TaskList({ tasks, onDeleteTask }) {
       />
     </View>
   );
-  const rendered = tasks ? notEmptyList : emptyList;
+  const rendered = tasks.length > 0 ? notEmptyList : emptyList;
   return rendered;
 }
 
