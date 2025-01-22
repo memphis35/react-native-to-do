@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { View, Button } from "react-native";
 import AppHeader from "./components/AppHeader";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
@@ -10,6 +10,9 @@ export default function App() {
     "Clean the bath",
     "Wash the dishes",
   ]);
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const addNewTaskHandler = () => setModalVisible(true);
 
   const addTask = (taskName) =>
     setTasks((currentTasks) => [...currentTasks, taskName]);
@@ -22,10 +25,13 @@ export default function App() {
   return (
     <View style={{ flex: 1 }}>
       <AppHeader />
-      <TaskInput addTask={addTask} />
+      <Button title="Add a new task" onPress={addNewTaskHandler} />
+      <TaskInput
+        addTask={addTask}
+        isModalVisible={isModalVisible}
+        setModalVisible={setModalVisible}
+      />
       <TaskList tasks={tasks} onDeleteTask={deleteTask} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({});

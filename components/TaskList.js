@@ -16,6 +16,7 @@ function TaskList({ tasks, onDeleteTask }) {
   );
   const notEmptyList = (
     <View style={styles.board_container}>
+      <Text>Today you have the following errands: </Text>
       <FlatList
         data={tasks}
         renderItem={renderTask}
